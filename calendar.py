@@ -50,7 +50,7 @@ def displaycalendar(arr):
                     c=c+1
                 else:
                     print(' '+str(arr[i][j])+' ',end='')
-        print('\n')
+        print('')
 
 
 
