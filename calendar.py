@@ -21,6 +21,14 @@ def ifleap(year):
         return False
 
 
+def zeller(month,year):
+    if month <= 2:
+        month = month + 12
+        year = year - 1
+    y = year % 100
+    c = year // 100
+    sday = (1 + ((month + 1) * 13)//5 + y + y//4 + c//4 - 2 * c) % 7
+    return sday
 
 while 1:
     month = get_month()
@@ -36,4 +44,4 @@ while 1:
         days = 29
     else:
         days = 28
-
+    startday = zeller(month, year)
