@@ -23,6 +23,7 @@ def ifleap(year):
     else:
         return False
 
+
 #입력받은 달이 시작하는 요일 구하기
 def zeller(month,year):
     if month <= 2:
@@ -41,6 +42,15 @@ def shiftdays(d):
         d=d-1
     return d
 
+'''def removeemptyrow(arr):
+    for i in range(6):
+        check = False
+        for j in range(7):
+            if arr[i][j]!=0:
+                check = True
+        if check:'''
+
+
 def displaymonthyear(m,y):
     mlist=['January','Febuary','March','April','May','June','July','August','September','October','November','December']
     mo=mlist[m-1]+' '+str(y)
@@ -48,10 +58,10 @@ def displaymonthyear(m,y):
     print(out)
 
 #달력 표시
-def displaycalendar(arr):
+def displaycalendar(arr,r):
     print('Su Mo Tu We Th Fr Sa')
     c=1
-    for i in range(6):
+    for i in range(r):
         for j in range(7):
             if arr[i][j]==0:
                 print('   ',end='')
@@ -81,9 +91,15 @@ while 1:
         days = 28
     startday = zeller(month, year)
     startday = shiftdays(startday)
+    if startday+days==28:
+        rows = 4
+    elif startday+days<=35:
+        rows = 5
+    else:
+        rows = 6
     arr=[]
     counter = 1
-    for i in range(6):
+    for i in range(rows):
         arr.append([])
         for j in range(7):
             arr[i].append(0)
@@ -96,6 +112,6 @@ while 1:
                     arr[i][j]=counter
                     counter=counter+1
     displaymonthyear(month,year)
-    displaycalendar(arr)
+    displaycalendar(arr,rows)
 
 
