@@ -60,6 +60,7 @@ def displaycalendar(arr):
 
 
 while 1:
+    print('This Program will display the calendar of a month from Jan. 1800 to Dec. 2099.')
     month = get_month()
     if month ==0:
         break
