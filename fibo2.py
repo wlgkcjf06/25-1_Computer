@@ -1,5 +1,3 @@
-
-
 warea = [0 for i in range(100)]
 def fibo(i):
     if i<=1:
