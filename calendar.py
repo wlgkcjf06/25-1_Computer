@@ -41,6 +41,12 @@ def shiftdays(d):
         d=d-1
     return d
 
+def displaymonthyear(m,y):
+    mlist=['January','Febuary','March','April','May','June','July','August','September','October','November','December']
+    mo=mlist[m-1]+' '+str(y)
+    out=mo.center(27)
+    print(out)
+
 #달력 표시
 def displaycalendar(arr):
     print('Sun Mon Tue Wed Thu Fri Sat')
@@ -56,7 +62,6 @@ def displaycalendar(arr):
                 else:
                     print(' '+str(arr[i][j])+' ',end='')
         print('')
-
 
 
 while 1:
@@ -90,6 +95,7 @@ while 1:
                 if counter<=days:
                     arr[i][j]=counter
                     counter=counter+1
+    displaymonthyear(month,year)
     displaycalendar(arr)
 
 
