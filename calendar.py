@@ -1,15 +1,15 @@
 #달 입력받기
 def get_month():
-    m= int(input('Enter a month(1~12). Enter 0 to exit program.\nInput: '))
-    while m<0 or m>12:
-        m= int(input('Invalid input. Enter a number between 0 and 12.\nInput: '))
+    m= int(input('Enter month (1-12): '))
+    while (m<0 or m>12) and m != -1:
+        m= int(input('INVALID INPUT - Enter month (1-12): '))
     return m
 
 #년도 임력받기
 def get_year():
-    y=int(input('Enter a year between 1800 and 2099.\nInput: '))
+    y=int(input('Enter year (yyyy): '))
     while y<1800 or y>2099:
-        y=int(input('Invalid input. Enter a number between 1800 and 2099.\nInput: '))
+        y=int(input('INVALID INPUT - Enter year (1800-2099): '))
     return y
 
 #윤년인지 판단
@@ -44,30 +44,30 @@ def shiftdays(d):
 def displaymonthyear(m,y):
     mlist=['January','Febuary','March','April','May','June','July','August','September','October','November','December']
     mo=mlist[m-1]+' '+str(y)
-    out=mo.center(27)
+    out=mo.center(20)
     print(out)
 
 #달력 표시
 def displaycalendar(arr):
-    print('Sun Mon Tue Wed Thu Fri Sat')
+    print('Su Mo Tu We Th Fr Sa')
     c=1
     for i in range(6):
         for j in range(7):
             if arr[i][j]==0:
-                print('    ',end='')
+                print('   ',end='')
             else:
                 if c<=9:
-                    print('  '+str(arr[i][j])+' ',end="")
+                    print(' '+str(arr[i][j])+' ',end="")
                     c=c+1
                 else:
-                    print(' '+str(arr[i][j])+' ',end='')
+                    print(str(arr[i][j])+' ',end='')
         print('')
 
 
 while 1:
-    print('This Program will display the calendar of a month from Jan. 1800 to Dec. 2099.')
+    print('This Program will display a calendar month between 1800 and 2099')
     month = get_month()
-    if month ==0:
+    if month == -1:
         break
     year = get_year()
     leap = ifleap(year)
