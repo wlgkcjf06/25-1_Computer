@@ -1,12 +1,12 @@
 #달 입력받기
-def get_month():
+def getmonth():
     m= int(input('Enter month (1-12): '))
     while (m<0 or m>12) and m != -1:
         m= int(input('INVALID INPUT - Enter month (1-12): '))
     return m
 
 #년도 임력받기
-def get_year():
+def getyear():
     y=int(input('Enter year (yyyy): '))
     while y<1800 or y>2099:
         y=int(input('INVALID INPUT - Enter year (1800-2099): '))
@@ -100,10 +100,10 @@ def displaycalendar(mon,r):
 
 print('This Program will display a calendar month between 1800 and 2099')
 while 1:
-    month = get_month()
+    month = getmonth()
     if month == -1:
         break
-    year = get_year()
+    year = getyear()
     leap = ifleap(year)
     days = getdays(month, leap)
     startday = zeller(month, year)
