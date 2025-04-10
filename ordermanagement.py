@@ -25,7 +25,7 @@ def main():
         discount = input("Apply discount? (yes/no): ").lower()
 
         if discount == 'yes':
-            drate = float(input("Enter discount rate (e.g. 0.2 for 20%):"))
+            drate = float(input("Enter discount rate (e.g. 0.2 for 20%): "))
             bprice = getprice(price,quantity)
             tot = apply_discount(bprice, drate)
         else:
