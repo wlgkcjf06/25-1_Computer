@@ -1,17 +1,11 @@
 def validate_email(email):
-    dots = 0
-    at = 0
-    domain = False
-    for i in range(len(email)):
-        if email[i] == '@':
-            at +=1
-            domain = True
-        elif email[i] == '.' and domain:
-            dots +=1
+    at = email.count('@')
     if at == 0:
         raise ValueError('The email must contain one @ symbol.')
     elif at > 1:
         raise ValueError('The email must contain only one @ symbol.')
+    pos = email.find('@')
+    dots = email[pos:].count('.')
     if dots == 0:
         raise ValueError("The domain must contain at least one '.' symbol.")
 
